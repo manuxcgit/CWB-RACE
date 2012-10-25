@@ -79,13 +79,11 @@
     <Compile Include="formImpression.Designer.cs">
       <DependentUpon>formImpression.cs</DependentUpon>
     </Compile>
-    <Compile Include="C:\Users\Pharma\Desktop\formMain.cs">
+    <Compile Include="formMain.cs">
       <SubType>Form</SubType>
-      <Link>formMain.cs</Link>
     </Compile>
-    <Compile Include="C:\Users\Pharma\Desktop\formMain.Designer.cs">
+    <Compile Include="formMain.Designer.cs">
       <DependentUpon>formMain.cs</DependentUpon>
-      <Link>formMain.Designer.cs</Link>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,10 +91,8 @@
       <DependentUpon>formImpression.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="C:\Users\Pharma\Desktop\formMain.resx">
+    <EmbeddedResource Include="formMain.resx">
       <DependentUpon>formMain.cs</DependentUpon>
-      <SubType>Designer</SubType>
-      <Link>formMain.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

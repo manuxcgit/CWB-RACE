@@ -70,7 +70,10 @@ namespace CWB_Race
             public int nbrTours;
             public int TempsEnSecondes;
             public static int dernierNumInterne;
-            public int Place; //pour voir evolution classement pendant course
+            public int PlaceGenerale = 0; //pour voir evolution classement pendant course
+            public int PlaceCategorie = 0;
+            public int ClassementGeneral = 0; // -1,0,ou 1 pour memoriser si monte ou descend au classement
+            public int ClassementCategorie = 0;
 
             public c_courreur() { }
 
@@ -123,7 +126,7 @@ namespace CWB_Race
                     courreur.nbrTours = 0;
                     courreur.TempsEnSecondes = 0;
                 }
-                m_MAJAffichageCourse(dernierCourreurSaisi);
+                m_MAJAffichageCourse(dernierCourreurSaisi, false);
             }
             else
             {
@@ -435,7 +438,7 @@ namespace CWB_Race
                         { courreur.nbrTours++; }
                         courreur.TempsEnSecondes = chrono;
                         lBPassage.Items.Add(string.Format("{0:000}  ...  {1:00}:{2:00}.{3:00}", Plaque, tS.Hours, tS.Minutes, tS.Seconds));
-                        m_MAJAffichageCourse(courreur);
+                        m_MAJAffichageCourse(courreur, true);
                         tBSaisieCourreur.Text = "";
                         lDernierCourreur.Text = "Dernier courreur saisi : " + courreur.Nom + " " + courreur.Prenom + " ... " + categorie.Nom;
                         dernierCourreurSaisi = courreur;
@@ -464,7 +467,7 @@ namespace CWB_Race
             { v_filtreCourreur = ""; }
             else
             { v_filtreCourreur = tCCategorieCourse.SelectedTab.Text; }
-            m_MAJAffichageCourse(dernierCourreurSaisi);
+            m_MAJAffichageCourse(dernierCourreurSaisi, false);
         }
 
         private void e_timerCourse_Tick(object sender, EventArgs e)
@@ -473,7 +476,7 @@ namespace CWB_Race
             TimeSpan ecoule = DateTime.Now - v_depart;
             tBChrono.Text = string.Format("{0:00}:{1:00}.{2:00}", ecoule.Hours, ecoule.Minutes, ecoule.Seconds);
             string[] ls = (from string l in lBPassage.Items select l).ToArray();
-            string v_time = (new FileInfo(Application.ExecutablePath).DirectoryName + "\\passage " + v_depart.ToShortDateString().Replace("/"," ") + " " + v_depart.ToShortTimeString().Replace(':', ' ') + ".txt");
+            string v_time = (new FileInfo(Application.ExecutablePath).DirectoryName + "\\passage " + v_depart.ToShortDateString().Replace("/", " ") + " " + v_depart.ToShortTimeString().Replace(':', ' ') + ".txt");
             File.WriteAllLines(v_time, ls);
         }
 
@@ -651,7 +654,7 @@ namespace CWB_Race
                 }
             }
             File.Copy(new FileInfo(Application.ExecutablePath).DirectoryName + "\\passage.txt", new FileInfo(Application.ExecutablePath).DirectoryName + "\\passage.old", true);
-            m_MAJAffichageCourse(null);
+            m_MAJAffichageCourse(null, false);
             tCMain.SelectedIndex = 3;
         }
 
@@ -674,7 +677,7 @@ namespace CWB_Race
                     int existe = v_listeCourreurs.FindIndex(c => c.Plaque == Plaque);
                     if ((existe > -1) & (existe != index))
                     {
-                        MessageBox.Show("Cette Plaque est deja attribuée !"); 
+                        MessageBox.Show("Cette Plaque est deja attribuée !");
                         return false; ;
                     }
                     v_listeCourreurs[index].Plaque = Plaque;
@@ -691,13 +694,13 @@ namespace CWB_Race
             catch { return false; }
         }
 
-        void m_MAJAffichageCourse(c_courreur CourreurSaisi)
+        void m_MAJAffichageCourse(c_courreur CourreurSaisi, bool NouveauClassement)
         {
             try
             {
                 lBClassement.Items.Clear();
                 lvCourse.Items.Clear();
-                lvCourse.Items.AddRange(m_remplirLVCourse(CourreurSaisi).ToArray());
+                lvCourse.Items.AddRange(m_remplirLVCourse(CourreurSaisi, NouveauClassement, true).ToArray());
                 Application.DoEvents();
                 try
                 {
@@ -705,7 +708,7 @@ namespace CWB_Race
                     {
                         //met focus sur ligne du coureur
                         ListViewItem lv = (from ListViewItem l in lvCourse.Items where int.Parse(l.SubItems[1].Text) == CourreurSaisi.Plaque select l).First();
-                        int height = lvCourse.Height /  26;
+                        int height = lvCourse.Height / 26;
                         if (lv.Index >= height)
                         { lvCourse.TopItem = lvCourse.Items[lv.Index - height + 2]; }
                     }
@@ -815,15 +818,38 @@ namespace CWB_Race
                 catch { }
             }
             m_MAJListeCourreurs("");
-            m_MAJAffichageCourse(null);
+            m_MAJAffichageCourse(null, false);
         }
 
-        public List<ListViewItem> m_remplirLVCourse(c_courreur CourreurSaisi)
+        public List<ListViewItem> m_remplirLVCourse(c_courreur CourreurSaisi, bool NouveauClassement, bool Recursif) //nouveauclassement pour mise à jour des places, sinon fleches n'apparaissent qu'un fois
         {
             int v_nbrToursMax = v_listeCategories.Max(c => c.NbrTours);
             bool v_nbrTourMaxFini = false;
             int place = 1;
             List<ListViewItem> result = new List<ListViewItem>();
+            //classe par categ aussi
+            if ((Recursif) && (NouveauClassement) && (CourreurSaisi != null))
+            {
+                if (v_filtreCourreur == "")
+                {
+                    try
+                    {
+                        v_filtreCourreur = (v_listeCategories.Find(categ => categ.numeroInterne == CourreurSaisi.CategorieNumInterne)).Nom;
+                        m_remplirLVCourse(CourreurSaisi, true, false);
+                    }
+                    catch { }
+                    v_filtreCourreur = "";
+                }
+                else
+                {
+                    string past = v_filtreCourreur;
+                    v_filtreCourreur = "";
+                    m_remplirLVCourse(CourreurSaisi, true, false);
+                    v_filtreCourreur = past;
+                }
+            }
+            #region Classe les coureurs
+            lBClassement.Items.Clear();
             foreach (string line in v_Course.listeInscritsEnString.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 try
@@ -833,15 +859,20 @@ namespace CWB_Race
                 }
                 catch { MessageBox.Show("Pb identification courreur ds m_remplirLVCourse " + line); }
             }
+            #endregion
             int v_tempsRef = 0;
             int v_toursRef = 0;
             int v_nbrFini = 0;
+            int v_placeGenerale = 0;
+            int v_placeCategorie = 0;
             foreach (string line in lBClassement.Items)
             {
                 int numeroInterne = int.Parse(line.ToString().Substring(10, 3));
                 c_courreur c = v_listeCourreurs.Find(x => x.numeroInterne == numeroInterne);
+                v_placeGenerale++;
                 if (v_listeCategories.Find(categ => categ.numeroInterne == c.CategorieNumInterne).Nom.Contains(v_filtreCourreur))
                 {
+                    v_placeCategorie++;
                     if (place == 1)
                     { v_tempsRef = c.TempsEnSecondes; v_toursRef = c.nbrTours; }
                     if (c.nbrTours >= v_nbrToursMax) { v_nbrTourMaxFini = true; }
@@ -852,7 +883,65 @@ namespace CWB_Race
                         lV.SubItems.Add(c.Plaque.ToString() + " / " + c.PLaqueBis.ToString());
                     }
                     else { lV.SubItems.Add(c.Plaque.ToString()); }
-                    lV.SubItems.Add(c.Nom);
+                    #region ajoute une fleche si chgt de place
+                    string v_nomFinal = c.Nom;
+                    if (NouveauClassement)
+                    {
+                        if (v_filtreCourreur == "")
+                        {
+                            if (c.PlaceGenerale != 0)
+                            {
+                                if (c.PlaceGenerale < v_placeGenerale)
+                                {
+                                    c.ClassementGeneral = -1;
+                                }
+                                if (c.PlaceGenerale > v_placeGenerale)
+                                {
+                                    c.ClassementGeneral = 1;
+                                }
+                                if (c.PlaceGenerale == v_placeGenerale)
+                                {
+                                    c.ClassementGeneral = 0;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (c.PlaceCategorie != 0)
+                            {
+                                if (c.PlaceCategorie < v_placeCategorie)
+                                {
+                                    c.ClassementCategorie = -1;
+                                }
+                                if (c.PlaceCategorie > v_placeCategorie)
+                                {
+                                    c.ClassementCategorie = 1;
+                                }
+                                if (c.PlaceCategorie == v_placeCategorie)
+                                {
+                                    c.ClassementCategorie = 0;
+                                }
+                            }
+                        }
+                    }
+                    if (v_filtreCourreur == "")
+                    {
+                        switch (c.ClassementGeneral)
+                        {
+                            case -1: v_nomFinal += " ↓"; break;
+                            case 1: v_nomFinal += " ↑"; break;
+                        }
+                    }
+                    else
+                    {
+                        switch (c.ClassementCategorie)
+                        {
+                            case -1: v_nomFinal += " ↓"; break;
+                            case 1: v_nomFinal += " ↑"; break;
+                        }
+                    }
+                    #endregion
+                    lV.SubItems.Add(v_nomFinal);
                     lV.SubItems.Add(c.Prenom);
                     lV.SubItems.Add(categ_ici.Nom);
                     lV.SubItems.Add(c.nbrTours.ToString());
@@ -871,13 +960,12 @@ namespace CWB_Race
                     bool v_ajouter = true;
                     if (c.nbrTours >= categ_ici.NbrTours) { v_ajouter = false; }
                     if (v_nbrTourMaxFini) { if (c.TempsEnSecondes > v_tempsRef) { v_ajouter = false; } }
-                    if (!v_ajouter) 
+                    if (!v_ajouter)
                     { lV.SubItems[0].BackColor = Color.Red; v_nbrFini++; }
                     v_ajouter |= !cBEncoreEnCourse.Checked;
                     //met le courreur saisi en vert
                     if (CourreurSaisi != null)
                     {
-                        //if (c.
                         if ((c == CourreurSaisi) & (lV.SubItems[0].BackColor != Color.Red))
                         {
                             lV.SubItems[0].BackColor = Color.Lime;
@@ -889,13 +977,19 @@ namespace CWB_Race
                     {
                         result.Add(lV);
                     }
+                    if (NouveauClassement)
+                    {
+                        if (v_filtreCourreur != "")
+                        {
+                            c.PlaceCategorie = v_placeCategorie;
+                        }
+                        else { c.PlaceGenerale = v_placeGenerale; }
+                    }
                     Application.DoEvents();
                     place++;
                 }
             }
             tbNbrEncoreEnCourse.Text = (place - v_nbrFini - 1).ToString();
-            //met le focus sur le coureur
-
             return result;
         }
 
@@ -958,7 +1052,7 @@ namespace CWB_Race
 
         private void e_cBEncoreEnCourse_CheckedChanged(object sender, EventArgs e)
         {
-            m_MAJAffichageCourse(dernierCourreurSaisi);
+            m_MAJAffichageCourse(dernierCourreurSaisi, false);
         }
 
         private void e_cBDoublerPlaque_CheckedChanged(object sender, EventArgs e)
