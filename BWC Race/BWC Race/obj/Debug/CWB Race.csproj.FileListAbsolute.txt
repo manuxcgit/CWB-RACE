@@ -1,0 +1,44 @@
+E:\Projets_Visual\CWB Race\CWC Race\BWC Race\obj\Debug\ResolveAssemblyReference.cache
+E:\Projets_Visual\CWB Race\CWC Race\BWC Race\obj\Debug\BWC_Race.mainForm.resources
+E:\Projets_Visual\CWB Race\CWC Race\BWC Race\obj\Debug\BWC_Race.Properties.Resources.resources
+E:\Projets_Visual\CWB Race\CWC Race\BWC Race\obj\Debug\CWB Race.csproj.GenerateResource.Cache
+E:\Projets_Visual\CWB Race\CWC Race\BWC Race\obj\Debug\BWC Race.exe
+E:\Projets_Visual\CWB Race\CWC Race\BWC Race\bin\Debug\BWC Race.exe
+E:\Projets_Visual\CWB Race\CWC Race\BWC Race\bin\Debug\BWC Race.pdb
+E:\Projets_Visual\CWB Race\CWC Race\BWC Race\obj\Debug\BWC Race.pdb
+D:\Mes Documents\Manu\VS2008\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.exe
+D:\Mes Documents\Manu\VS2008\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.pdb
+D:\Mes Documents\Manu\VS2008\CWB Race\BWC Race\BWC Race\obj\Debug\ResolveAssemblyReference.cache
+D:\Mes Documents\Manu\VS2008\CWB Race\BWC Race\BWC Race\obj\Debug\BWC_Race.Properties.Resources.resources
+D:\Mes Documents\Manu\VS2008\CWB Race\BWC Race\BWC Race\obj\Debug\CWB Race.csproj.GenerateResource.Cache
+D:\Mes Documents\Manu\VS2008\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.exe
+D:\Mes Documents\Manu\VS2008\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.pdb
+D:\Mes Documents\Manu\VS2008\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formMain.resources
+D:\Mes Documents\Manu\VS2008\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formImpression.resources
+C:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.exe
+C:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.pdb
+C:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.exe
+C:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.pdb
+C:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formImpression.resources
+C:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formMain.resources
+C:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\BWC_Race.Properties.Resources.resources
+C:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\CWB Race.csproj.GenerateResource.Cache
+C:\Users\ManuPortable\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.exe
+C:\Users\ManuPortable\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.pdb
+C:\Users\ManuPortable\Desktop\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.exe
+C:\Users\ManuPortable\Desktop\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.pdb
+C:\Users\ManuPortable\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ManuPortable\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formImpression.resources
+C:\Users\ManuPortable\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formMain.resources
+C:\Users\ManuPortable\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\BWC_Race.Properties.Resources.resources
+C:\Users\ManuPortable\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\CWB Race.csproj.GenerateResource.Cache
+C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.exe
+C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.pdb
+C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.exe
+C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.pdb
+C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formImpression.resources
+C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formMain.resources
+C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\BWC_Race.Properties.Resources.resources
+C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\CWB Race.csproj.GenerateResource.Cache

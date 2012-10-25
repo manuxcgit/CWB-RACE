@@ -1,0 +1,8 @@
+E:\Projets_Visual\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.exe
+E:\Projets_Visual\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.pdb
+E:\Projets_Visual\CWB Race\BWC Race\BWC Race\obj\Debug\ResolveAssemblyReference.cache
+E:\Projets_Visual\CWB Race\BWC Race\BWC Race\obj\Debug\BWC_Race.mainForm.resources
+E:\Projets_Visual\CWB Race\BWC Race\BWC Race\obj\Debug\BWC_Race.Properties.Resources.resources
+E:\Projets_Visual\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.csproj.GenerateResource.Cache
+E:\Projets_Visual\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.exe
+E:\Projets_Visual\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.pdb
