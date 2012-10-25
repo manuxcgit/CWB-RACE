@@ -1,0 +1,13 @@
+100 ... trop rapide
+104  ***  00:00.05
+102 ... trop rapide
+102 ... trop rapide
+102  ...  00:01.01
+100  ...  00:01.11
+101  ...  00:01.13
+102 ... trop rapide
+102 ... trop rapide
+102 ... trop rapide
+102 ... trop rapide
+102 ... trop rapide
+102  ...  00:02.02
