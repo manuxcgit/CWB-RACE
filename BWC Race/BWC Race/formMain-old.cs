@@ -70,7 +70,6 @@ namespace CWB_Race
             public int nbrTours;
             public int TempsEnSecondes;
             public static int dernierNumInterne;
-            public int Place; //pour voir evolution classement pendant course
 
             public c_courreur() { }
 
@@ -703,7 +702,6 @@ namespace CWB_Race
                 {
                     if (CourreurSaisi != null)
                     {
-                        //met focus sur ligne du coureur
                         ListViewItem lv = (from ListViewItem l in lvCourse.Items where int.Parse(l.SubItems[1].Text) == CourreurSaisi.Plaque select l).First();
                         int height = lvCourse.Height /  26;
                         if (lv.Index >= height)
@@ -839,6 +837,8 @@ namespace CWB_Race
             foreach (string line in lBClassement.Items)
             {
                 int numeroInterne = int.Parse(line.ToString().Substring(10, 3));
+                int v_nbrAffichés = 0;
+                int v_indexCoureur = 0;
                 c_courreur c = v_listeCourreurs.Find(x => x.numeroInterne == numeroInterne);
                 if (v_listeCategories.Find(categ => categ.numeroInterne == c.CategorieNumInterne).Nom.Contains(v_filtreCourreur))
                 {
@@ -877,7 +877,6 @@ namespace CWB_Race
                     //met le courreur saisi en vert
                     if (CourreurSaisi != null)
                     {
-                        //if (c.
                         if ((c == CourreurSaisi) & (lV.SubItems[0].BackColor != Color.Red))
                         {
                             lV.SubItems[0].BackColor = Color.Lime;
@@ -888,6 +887,8 @@ namespace CWB_Race
                     if ((c.Plaque > 0) & (v_ajouter))
                     {
                         result.Add(lV);
+                        v_nbrAffichés++;
+                        v_indexCoureur = v_nbrAffichés;
                     }
                     Application.DoEvents();
                     place++;

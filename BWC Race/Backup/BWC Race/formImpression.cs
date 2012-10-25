@@ -287,10 +287,7 @@ namespace CWB_Race
                         string lV = place.ToString() + "!";
                         lV += (c.Nom) + "!";
                         lV += (c.Prenom) + "!";
-                        if (c.PLaqueBis != 0)
-                        { lV += (c.Plaque.ToString()) + " / " + c.PLaqueBis.ToString() + "!"; }
-                        else
-                        { lV += (c.Plaque.ToString()) + "!"; }
+                        lV += (c.Plaque.ToString()) + " / " + c.PLaqueBis.ToString() + "!";
                         lV += c.NumeroLicence + "!";
                         lV += c.Club + "!";
                         //lV+=(c.Categorie);

@@ -42,10 +42,10 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tBNumeroCourreurAInscrire = new System.Windows.Forms.TextBox();
             this.lVCourreursInscrits = new System.Windows.Forms.ListView();
-            this.cHNomInscrit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chPrenomInscrit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cHCatgegorie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cHNumeroInscrit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cHNomInscrit = new System.Windows.Forms.ColumnHeader();
+            this.chPrenomInscrit = new System.Windows.Forms.ColumnHeader();
+            this.cHCatgegorie = new System.Windows.Forms.ColumnHeader();
+            this.cHNumeroInscrit = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStripLVCourreursInscrits = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMI_modifierCourreur = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -64,7 +64,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tPCategories = new System.Windows.Forms.TabPage();
             this.lVCategories = new System.Windows.Forms.ListView();
-            this.cHNomCategorie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cHNomCategorie = new System.Windows.Forms.ColumnHeader();
             this.cmdSauvegarderCategorie = new System.Windows.Forms.Button();
             this.tBAgeMaxi = new System.Windows.Forms.TextBox();
             this.tBAgeMini = new System.Windows.Forms.TextBox();
@@ -89,11 +89,11 @@
             this.cmdSauvegarderCourreur = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.lVCourreurs = new System.Windows.Forms.ListView();
-            this.cHNumInterne = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cHNomCourreur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cHPrenomCourreur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cHCategorieCourreur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cHNumeroCourreur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cHNumInterne = new System.Windows.Forms.ColumnHeader();
+            this.cHNomCourreur = new System.Windows.Forms.ColumnHeader();
+            this.cHPrenomCourreur = new System.Windows.Forms.ColumnHeader();
+            this.cHCategorieCourreur = new System.Windows.Forms.ColumnHeader();
+            this.cHNumeroCourreur = new System.Windows.Forms.ColumnHeader();
             this.tBPlaque = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.cBDepartement = new System.Windows.Forms.ComboBox();
@@ -122,14 +122,14 @@
             this.cmdDemarrer = new System.Windows.Forms.Button();
             this.tBSaisieCourreur = new System.Windows.Forms.TextBox();
             this.lvCourse = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
             this.tCCategorieCourse = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lBPassage = new System.Windows.Forms.ListBox();
@@ -510,8 +510,8 @@
             this.lVCategories.TabIndex = 11;
             this.lVCategories.UseCompatibleStateImageBehavior = false;
             this.lVCategories.View = System.Windows.Forms.View.Details;
-            this.lVCategories.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.e_lVCategories_ColumnClick);
             this.lVCategories.SelectedIndexChanged += new System.EventHandler(this.e_lVCategories_SelectedIndexChanged);
+            this.lVCategories.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.e_lVCategories_ColumnClick);
             // 
             // cHNomCategorie
             // 
@@ -781,9 +781,9 @@
             this.lVCourreurs.TabIndex = 21;
             this.lVCourreurs.UseCompatibleStateImageBehavior = false;
             this.lVCourreurs.View = System.Windows.Forms.View.Details;
+            this.lVCourreurs.SelectedIndexChanged += new System.EventHandler(this.e_lVCourreurs_SelectedIndexChanged);
             this.lVCourreurs.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.e_lVCourreurs_ColumnClick);
             this.lVCourreurs.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.e_lVCourreurs_ColumnWidthChanging);
-            this.lVCourreurs.SelectedIndexChanged += new System.EventHandler(this.e_lVCourreurs_SelectedIndexChanged);
             // 
             // cHNumInterne
             // 

@@ -42,3 +42,13 @@ C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formImp
 C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formMain.resources
 C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\BWC_Race.Properties.Resources.resources
 C:\Users\PcPlacard\Desktop\CWB Race\BWC Race\BWC Race\obj\Debug\CWB Race.csproj.GenerateResource.Cache
+D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.exe
+D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\BWC Race.pdb
+D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.exe
+D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\bin\Debug\BWC Race.pdb
+D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\ResolveAssemblyReference.cache
+D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formImpression.resources
+D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\CWB_Race.formMain.resources
+D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\BWC_Race.Properties.Resources.resources
+D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\BWC Race\obj\Debug\GenerateResource-ResGen.write.1.tlog

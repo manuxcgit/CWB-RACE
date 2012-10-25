@@ -70,7 +70,6 @@ namespace CWB_Race
             public int nbrTours;
             public int TempsEnSecondes;
             public static int dernierNumInterne;
-            public int Place; //pour voir evolution classement pendant course
 
             public c_courreur() { }
 
@@ -416,7 +415,6 @@ namespace CWB_Race
                 if (tBSaisieCourreur.Text.Length == 3)
                 {
                     int Plaque = int.Parse(tBSaisieCourreur.Text);
-                    if (Plaque == 0) { return; }
                     c_courreur courreur = v_listeCourreurs.Find(c => (c.Plaque == Plaque) || (c.PLaqueBis == Plaque));
                     c_categorie categorie = v_listeCategories.Find(ca => ca.numeroInterne == courreur.CategorieNumInterne);
                     TimeSpan tS = DateTime.Now - v_depart;
@@ -701,14 +699,11 @@ namespace CWB_Race
                 Application.DoEvents();
                 try
                 {
-                    if (CourreurSaisi != null)
-                    {
-                        //met focus sur ligne du coureur
-                        ListViewItem lv = (from ListViewItem l in lvCourse.Items where int.Parse(l.SubItems[1].Text) == CourreurSaisi.Plaque select l).First();
-                        int height = lvCourse.Height /  26;
-                        if (lv.Index >= height)
-                        { lvCourse.TopItem = lvCourse.Items[lv.Index - height + 2]; }
-                    }
+
+                    ListViewItem lv = (from ListViewItem l in lvCourse.Items where int.Parse(l.SubItems[1].Text) == CourreurSaisi.Plaque select l).First();
+                    int height = lvCourse.Height / 18;
+                    if (lv.Index >= height)
+                    { lvCourse.TopItem = lvCourse.Items[lv.Index - height + 2]; }
                 }
                 catch { }
                 try
@@ -847,11 +842,7 @@ namespace CWB_Race
                     if (c.nbrTours >= v_nbrToursMax) { v_nbrTourMaxFini = true; }
                     ListViewItem lV = new ListViewItem(string.Format("{0:000}", place));
                     c_categorie categ_ici = v_listeCategories.Find(categ => categ.numeroInterne == c.CategorieNumInterne);
-                    if (v_Course.DoublerPlaque)
-                    {
-                        lV.SubItems.Add(c.Plaque.ToString() + " / " + c.PLaqueBis.ToString());
-                    }
-                    else { lV.SubItems.Add(c.Plaque.ToString()); }
+                    lV.SubItems.Add(c.Plaque.ToString() + " / " + c.PLaqueBis.ToString());
                     lV.SubItems.Add(c.Nom);
                     lV.SubItems.Add(c.Prenom);
                     lV.SubItems.Add(categ_ici.Nom);
@@ -877,25 +868,19 @@ namespace CWB_Race
                     //met le courreur saisi en vert
                     if (CourreurSaisi != null)
                     {
-                        //if (c.
                         if ((c == CourreurSaisi) & (lV.SubItems[0].BackColor != Color.Red))
                         {
                             lV.SubItems[0].BackColor = Color.Lime;
                             Application.DoEvents();
                         }
                     }
-
                     if ((c.Plaque > 0) & (v_ajouter))
-                    {
-                        result.Add(lV);
-                    }
+                    { result.Add(lV); }
                     Application.DoEvents();
                     place++;
                 }
             }
             tbNbrEncoreEnCourse.Text = (place - v_nbrFini - 1).ToString();
-            //met le focus sur le coureur
-
             return result;
         }
 

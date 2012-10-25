@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="CWB Race">
+</Property><Property Name="Fichier solution" Value="D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\CWB Race.sln">
+</Property><Property Name="Fichier d'options utilisateur" Value="D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\CWB Race.suo">
+</Property><Property Name="Date" Value="jeudi 25 octobre 2012">
+</Property><Property Name="Time" Value="11:06">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="CWB Race.sln" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\CWB Race.sln">
+</Event><Event ErrorLevel="0" Project="" Source="CWB Race.suo" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\CWB Race.suo">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\CWB Race.csproj" Description="Fichier projet correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\CWB Race.csproj">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\classIni.cs" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\classIni.cs">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\formImpression.cs" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\formImpression.cs">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\formImpression.Designer.cs" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\formImpression.Designer.cs">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\formMain.cs" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\formMain.cs">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\formMain.Designer.cs" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\formMain.Designer.cs">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\Program.cs" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\Program.cs">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\Properties\AssemblyInfo.cs" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\Properties\Resources.Designer.cs" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\Properties\Settings.Designer.cs" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\Properties\Settings.settings" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\cwb.ico" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\cwb.ico">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\formImpression.resx" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\formImpression.resx">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\formMain.resx" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\formMain.resx">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\Properties\Resources.resx" Description="Fichier correctement sauvegardé en tant que D:\Documents and Settings\Administrateur\Bureau\CWB Race\BWC Race\Backup\BWC Race\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\CWB Race.csproj" Description="Projet correctement converti">
+</Event><Event ErrorLevel="3" Project="CWB Race" Source="BWC Race\CWB Race.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="CWB Race.sln" Description="Solution correctement convertie">
+</Event><Event ErrorLevel="3" Project="" Source="CWB Race.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWB Race" Source="BWC Race\CWB Race.csproj" Description="Analyse terminée : la mise à niveau n'est pas requise pour les fichiers projet.">
+</Event></UpgradeLog>
