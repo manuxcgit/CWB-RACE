@@ -63,6 +63,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tPCategories = new System.Windows.Forms.TabPage();
+            this.cmdSupprimerCateg = new System.Windows.Forms.Button();
             this.lVCategories = new System.Windows.Forms.ListView();
             this.cHNomCategorie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmdSauvegarderCategorie = new System.Windows.Forms.Button();
@@ -204,7 +205,7 @@
             this.tBNumeroAInscrireBis.Location = new System.Drawing.Point(303, 250);
             this.tBNumeroAInscrireBis.Name = "tBNumeroAInscrireBis";
             this.tBNumeroAInscrireBis.Size = new System.Drawing.Size(75, 49);
-            this.tBNumeroAInscrireBis.TabIndex = 6;
+            this.tBNumeroAInscrireBis.TabIndex = 11;
             this.tBNumeroAInscrireBis.Visible = false;
             // 
             // cBDoublerPlaque
@@ -214,7 +215,7 @@
             this.cBDoublerPlaque.Location = new System.Drawing.Point(21, 135);
             this.cBDoublerPlaque.Name = "cBDoublerPlaque";
             this.cBDoublerPlaque.Size = new System.Drawing.Size(148, 20);
-            this.cBDoublerPlaque.TabIndex = 21;
+            this.cBDoublerPlaque.TabIndex = 4;
             this.cBDoublerPlaque.Text = "Doubler les plaques";
             this.cBDoublerPlaque.UseVisualStyleBackColor = true;
             this.cBDoublerPlaque.CheckedChanged += new System.EventHandler(this.e_cBDoublerPlaque_CheckedChanged);
@@ -235,7 +236,7 @@
             this.tbFiltreNom.Location = new System.Drawing.Point(71, 369);
             this.tbFiltreNom.Name = "tbFiltreNom";
             this.tbFiltreNom.Size = new System.Drawing.Size(211, 22);
-            this.tbFiltreNom.TabIndex = 4;
+            this.tbFiltreNom.TabIndex = 8;
             this.tbFiltreNom.TextChanged += new System.EventHandler(this.e_tbFiltreNom_TextChanged);
             this.tbFiltreNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.e_tbFiltreNom_KeyPress);
             // 
@@ -247,7 +248,7 @@
             this.lBCoursesExistantes.Location = new System.Drawing.Point(571, 23);
             this.lBCoursesExistantes.Name = "lBCoursesExistantes";
             this.lBCoursesExistantes.Size = new System.Drawing.Size(298, 116);
-            this.lBCoursesExistantes.TabIndex = 4;
+            this.lBCoursesExistantes.TabIndex = 5;
             this.lBCoursesExistantes.SelectedIndexChanged += new System.EventHandler(this.e_lBCoursesExistantes_SelectedIndexChanged);
             // 
             // label25
@@ -266,7 +267,7 @@
             this.cmdImporterResultat.Location = new System.Drawing.Point(667, 424);
             this.cmdImporterResultat.Name = "cmdImporterResultat";
             this.cmdImporterResultat.Size = new System.Drawing.Size(131, 23);
-            this.cmdImporterResultat.TabIndex = 10;
+            this.cmdImporterResultat.TabIndex = 7;
             this.cmdImporterResultat.Text = "importer Resultat";
             this.cmdImporterResultat.UseVisualStyleBackColor = true;
             this.cmdImporterResultat.Click += new System.EventHandler(this.e_cmdImporterResultat_Click);
@@ -287,7 +288,7 @@
             this.tBNumeroCourreurAInscrire.Location = new System.Drawing.Point(303, 195);
             this.tBNumeroCourreurAInscrire.Name = "tBNumeroCourreurAInscrire";
             this.tBNumeroCourreurAInscrire.Size = new System.Drawing.Size(75, 49);
-            this.tBNumeroCourreurAInscrire.TabIndex = 5;
+            this.tBNumeroCourreurAInscrire.TabIndex = 10;
             // 
             // lVCourreursInscrits
             // 
@@ -361,7 +362,7 @@
             this.cmdInscrire.Location = new System.Drawing.Point(303, 320);
             this.cmdInscrire.Name = "cmdInscrire";
             this.cmdInscrire.Size = new System.Drawing.Size(75, 71);
-            this.cmdInscrire.TabIndex = 7;
+            this.cmdInscrire.TabIndex = 12;
             this.cmdInscrire.Text = "Inscrire";
             this.cmdInscrire.UseVisualStyleBackColor = true;
             this.cmdInscrire.Click += new System.EventHandler(this.e_cmdInscrire_Click);
@@ -375,7 +376,7 @@
             this.lBCourreurs.Name = "lBCourreurs";
             this.lBCourreurs.Size = new System.Drawing.Size(261, 186);
             this.lBCourreurs.Sorted = true;
-            this.lBCourreurs.TabIndex = 11;
+            this.lBCourreurs.TabIndex = 9;
             this.lBCourreurs.SelectedIndexChanged += new System.EventHandler(this.e_lBCourreurs_SelectedIndexChanged);
             // 
             // dTPCourse
@@ -392,7 +393,7 @@
             this.cmdImporterCourse.Location = new System.Drawing.Point(360, 424);
             this.cmdImporterCourse.Name = "cmdImporterCourse";
             this.cmdImporterCourse.Size = new System.Drawing.Size(131, 23);
-            this.cmdImporterCourse.TabIndex = 9;
+            this.cmdImporterCourse.TabIndex = 6;
             this.cmdImporterCourse.Text = "importer Course";
             this.cmdImporterCourse.UseVisualStyleBackColor = true;
             this.cmdImporterCourse.Click += new System.EventHandler(this.e_cmdImporterCourse_Click);
@@ -403,7 +404,7 @@
             this.cmdSauvegarderCourse.Location = new System.Drawing.Point(82, 424);
             this.cmdSauvegarderCourse.Name = "cmdSauvegarderCourse";
             this.cmdSauvegarderCourse.Size = new System.Drawing.Size(131, 23);
-            this.cmdSauvegarderCourse.TabIndex = 8;
+            this.cmdSauvegarderCourse.TabIndex = 5;
             this.cmdSauvegarderCourse.Text = "sauvegarder";
             this.cmdSauvegarderCourse.UseVisualStyleBackColor = true;
             this.cmdSauvegarderCourse.Click += new System.EventHandler(this.e_cmdSauvegarderCourse_Click);
@@ -474,6 +475,7 @@
             // 
             // tPCategories
             // 
+            this.tPCategories.Controls.Add(this.cmdSupprimerCateg);
             this.tPCategories.Controls.Add(this.lVCategories);
             this.tPCategories.Controls.Add(this.cmdSauvegarderCategorie);
             this.tPCategories.Controls.Add(this.tBAgeMaxi);
@@ -494,6 +496,16 @@
             this.tPCategories.TabIndex = 1;
             this.tPCategories.Text = "Categories";
             this.tPCategories.UseVisualStyleBackColor = true;
+            // 
+            // cmdSupprimerCateg
+            // 
+            this.cmdSupprimerCateg.Location = new System.Drawing.Point(357, 413);
+            this.cmdSupprimerCateg.Name = "cmdSupprimerCateg";
+            this.cmdSupprimerCateg.Size = new System.Drawing.Size(143, 22);
+            this.cmdSupprimerCateg.TabIndex = 13;
+            this.cmdSupprimerCateg.Text = "supprimer";
+            this.cmdSupprimerCateg.UseVisualStyleBackColor = true;
+            this.cmdSupprimerCateg.Click += new System.EventHandler(this.e_cmdSupprimerCateg_Click);
             // 
             // lVCategories
             // 
@@ -1427,6 +1439,7 @@
         private System.Windows.Forms.TextBox tBPlaqueBis;
         private System.Windows.Forms.CheckBox cBDoublerPlaque;
         private System.Windows.Forms.TextBox tBNumeroAInscrireBis;
+        private System.Windows.Forms.Button cmdSupprimerCateg;
         public static System.Windows.Forms.ProgressBar pBExcel;
     }
 }

@@ -161,12 +161,27 @@ namespace CWB_Race
 
         private void e_cmdInscrire_Click(object sender, EventArgs e)
         {
-            m_inscrireCourreur(lBCourreurs.Items[lBCourreurs.SelectedIndex].ToString(), tBNumeroCourreurAInscrire.Text, tBNumeroAInscrireBis.Text);
-            tbFiltreNom.Text = "";
-            tbFiltreNom.Focus();
+            //cherche si reste une seule ligne dans liste
+            try
+            {
+                if (lBCourreurs.Items.Count == 1)
+                {
+                    m_inscrireCourreur(lBCourreurs.Items[0].ToString(), tBNumeroCourreurAInscrire.Text, tBNumeroAInscrireBis.Text);
+                }
+                else
+                { m_inscrireCourreur(lBCourreurs.Items[lBCourreurs.SelectedIndex].ToString(), tBNumeroCourreurAInscrire.Text, tBNumeroAInscrireBis.Text); }
+                tbFiltreNom.Text = "";
+                tbFiltreNom.Focus();
+            }
+            catch { }
         }
 
         private void e_cmdSauvegarderCategorie_Click(object sender, EventArgs e)
+        {
+            m_sauverCategorie(false);
+        }
+
+        private void m_sauverCategorie(bool supprimer)
         {
             c_categorie newcateg = new c_categorie();
             try
@@ -182,9 +197,11 @@ namespace CWB_Race
                 { newcateg.numeroInterne = int.Parse(tBNumeroInterneCategorie.Text); }
                 int index = v_listeCategories.FindIndex(c => c.numeroInterne == newcateg.numeroInterne);
                 if (index > -1) { v_listeCategories.RemoveAt(index); }
-                v_listeCategories.Add(newcateg);
-                c_Ini ini = new c_Ini("Categories.ini");
-                ini.m_Write(newcateg, newcateg.numeroInterne.ToString());
+                if (!supprimer)
+                { v_listeCategories.Add(newcateg); }
+                //c_Ini ini = new c_Ini("Categories.ini");
+                //ini.m_Write(newcateg, newcateg.numeroInterne.ToString());
+                m_sauverListeCategorie();
                 tBNomCategorie.Text = "";
                 tBDecalage.Text = "";
                 tBAgeMaxi.Text = "";
@@ -206,7 +223,8 @@ namespace CWB_Race
                 c_courreur v_courreur = new c_courreur();
                 v_courreur.Nom = tBNomCourreur.Text;
                 v_courreur.Prenom = tBPrenomCourreur.Text;
-                v_courreur.CategorieNumInterne = v_listeCategories.Find(c => c.Nom == cBCategorieCourreur.Text).numeroInterne;
+                try { v_courreur.CategorieNumInterne = v_listeCategories.Find(c => c.Nom == cBCategorieCourreur.Text).numeroInterne; }
+                catch { v_courreur.CategorieNumInterne = 0; }
                 v_courreur.Club = tBClubCourreur.Text;
                 v_courreur.DateNaissance = dTPCourreur.Value;
                 v_courreur.Departement = cBDepartement.Text;
@@ -482,23 +500,24 @@ namespace CWB_Race
 
         private void e_TSMI_modifierCourreur_Click(object sender, EventArgs e)
         {
-            try
+            string nom = lVCourreursInscrits.SelectedItems[0].SubItems[0].Text;
+            string prenom = lVCourreursInscrits.SelectedItems[0].SubItems[1].Text;
+            int index = 0;
+            foreach (ListViewItem lVI in lVCourreurs.Items)
             {
-                string nom = lVCourreursInscrits.SelectedItems[0].SubItems[0].Text;
-                string premnom = lVCourreursInscrits.SelectedItems[0].SubItems[1].Text;
-                int index = 0;
-                foreach (ListViewItem lVI in lVCourreurs.Items)
+                if ((lVI.SubItems[1].Text == nom) && (lVI.SubItems[2].Text == prenom))
                 {
-                    if ((lVI.SubItems[1].Text == nom) && (lVI.SubItems[2].Text == premnom))
+                    try
                     {
                         lVCourreurs.Items[index].Selected = true;
-                        break;
                     }
-                    else { index++; }
+                    catch { }
+                    break;
                 }
-                if (index < lVCourreurs.Items.Count) { tCMain.SelectedIndex = 2; }
+                else { index++; }
             }
-            catch { }
+            //if (index < lVCourreurs.Items.Count) 
+            { tCMain.SelectedIndex = 2; }
         }
 
         private void e_TSMI_SupprimerCourreur_Click(object sender, EventArgs e)
@@ -684,8 +703,13 @@ namespace CWB_Race
                     v_listeCourreurs[index].PLaqueBis = PlaqueBis;
                     v_listeInscrits.Add(v_listeCourreurs[index].numeroInterne);
                     m_sauvegarderCourse();
-                    tBNumeroCourreurAInscrire.Text = (Plaque + 1).ToString();
-                    tBNumeroAInscrireBis.Text = (PlaqueBis + 1).ToString();
+                    if (v_Course.DoublerPlaque)
+                    {
+                        tBNumeroCourreurAInscrire.Text = (Plaque + 1).ToString();
+                        tBNumeroAInscrireBis.Text = (PlaqueBis + 1).ToString();
+                    }
+                    else
+                    { tBNumeroCourreurAInscrire.Text = (Plaque + 1).ToString(); }
                     m_MAJLVCourreursInscrits();
                     m_MAJListeCourreurs("");
                 }
@@ -767,7 +791,7 @@ namespace CWB_Race
                 lBCourreurs.Items.Clear();
                 foreach (c_courreur courreur in v_listeCourreurs)
                 {
-                    if (courreur.Nom.StartsWith(filter))
+                    if (courreur.Nom.Contains(filter))
                     {
                         c_test = courreur;
                         //  if (c_test.Prenom == "test")
@@ -776,11 +800,12 @@ namespace CWB_Race
                         v_line.Text = courreur.numeroInterne.ToString();
                         v_line.SubItems.Add(courreur.Nom);
                         v_line.SubItems.Add(courreur.Prenom);
-                        v_line.SubItems.Add(v_listeCategories.Find(c => c.numeroInterne == courreur.CategorieNumInterne).Nom);
+                        try { v_line.SubItems.Add(v_listeCategories.Find(c => c.numeroInterne == courreur.CategorieNumInterne).Nom); }
+                        catch { v_line.SubItems.Add("Pas de catégorie"); }
                         v_line.SubItems.Add(courreur.Plaque.ToString() + " / " + courreur.PLaqueBis.ToString());
                         lVCourreurs.Items.Add(v_line);
 
-                        if ((courreur.Plaque == 0) & (courreur.Nom.StartsWith(tbFiltreNom.Text)))
+                        if ((courreur.Plaque == 0) & (courreur.Nom.Contains(tbFiltreNom.Text)))
                         { lBCourreurs.Items.Add(courreur.Nom + " ... " + courreur.Prenom); }
                     }
                 }
@@ -1065,6 +1090,25 @@ namespace CWB_Race
         {
             //tri le lvpilote 
             m_MAJListeCourreurs(tBNomCourreur.Text);
+        }
+
+        private void e_cmdSupprimerCateg_Click(object sender, EventArgs e)
+        {
+            //supprime une categorie
+            if (MessageBox.Show("Confirmez vous la suppression ?", "ATTENTION", MessageBoxButtons.YesNo ) == DialogResult.Yes)
+            { m_sauverCategorie(true); }
+        }
+
+        void m_sauverListeCategorie()
+        {
+            File.Delete(new FileInfo(Application.ExecutablePath).DirectoryName + "\\Categories.ini");
+            c_Ini v_iniCateg = new c_Ini("Categories.ini");
+            int index = 1;
+            foreach (c_categorie categ in v_listeCategories)
+            {
+                v_iniCateg.m_Write(categ, index.ToString());
+                index++;
+            }
         }
     }
 
